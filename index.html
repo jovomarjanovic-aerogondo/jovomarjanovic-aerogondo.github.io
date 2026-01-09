@@ -1,70 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jovo Marjanovic — Photography</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jovo Marjanovic — Photographer</title>
 
-  <style>
-    * { box-sizing: border-box; }
+<style>
+  body {
+    margin: 0;
+    background: #111;
+    color: #eee;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  }
 
-    body {
-      margin: 0;
-      background: #0f0f0f;
-      color: #eee;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-    }
+  .container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px 12px 60px;
+  }
 
-    header {
-      text-align: center;
-      padding: 20px 10px 10px;
-      font-size: 14px;
-      letter-spacing: 2px;
-      opacity: 0.8;
-    }
+  h1 {
+    font-size: 28px;
+    margin: 0 0 6px;
+    text-align: center;
+    letter-spacing: 1px;
+  }
 
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 6px;
-      padding: 6px;
-    }
+  .subtitle {
+    text-align: center;
+    opacity: 0.7;
+    margin-bottom: 18px;
+  }
 
-    .gallery img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      cursor: pointer;
-      transition: transform 0.25s ease, opacity 0.25s ease;
-    }
+  .info {
+    display: grid;
+    gap: 8px;
+    justify-content: center;
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 22px;
+  }
 
-    .gallery img:hover {
-      transform: scale(1.03);
-      opacity: 0.9;
-    }
+  .info a {
+    color: #eee;
+    text-decoration: none;
+  }
 
-    /* Lightbox */
-    .lightbox {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.9);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-    }
+  .info span {
+    opacity: 0.7;
+  }
 
-    .lightbox img {
-      max-width: 95%;
-      max-height: 95%;
-    }
+  .line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
 
-  </style>
+  .icon {
+    width: 16px;
+    height: 16px;
+    fill: #eee;
+    opacity: 0.8;
+  }
+
+  /* Gallery grid */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 4px;
+  }
+
+  .gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    cursor: pointer;
+  }
+
+  /* Lightbox */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+
+  .lightbox img {
+    max-width: 95%;
+    max-height: 95%;
+  }
+
+</style>
 </head>
+
 <body>
 
-  <header>JOVO MARJANOVIC · PHOTOGRAPHY</header>
+<div class="container">
 
+  <h1>Jovo Marjanovic</h1>
+  <div class="subtitle">Photographer</div>
+
+  <div class="info">
+
+    <div class="line">
+      <!-- Instagram icon -->
+      <svg class="icon" viewBox="0 0 24 24">
+        <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2.2a2.8 2.8 0 1 1 0 5.6 2.8 2.8 0 0 1 0-5.6zM17.5 6.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+      </svg>
+      <a href="https://www.instagram.com/jovomarjanovicphotography/" target="_blank">
+        @jovomarjanovicphotography
+      </a>
+    </div>
+
+    <div class="line">
+      <!-- Adobe Stock icon (simple A) -->
+      <svg class="icon" viewBox="0 0 24 24">
+        <path d="M12 2l9 20h-4l-2-5H9l-2 5H3l9-20zm0 6l-2.2 5h4.4L12 8z"/>
+      </svg>
+      <a href="https://stock.adobe.com/contributor/201855263/aerogondo" target="_blank">
+        Adobe Stock Portfolio
+      </a>
+    </div>
+
+    <div class="line">
+      📍 <span>Romena Rolana 53-1, 11000 Belgrade, Serbia</span>
+    </div>
+
+    <div class="line">
+      ✉️ <a href="mailto:jovo@priest.com">jovo@priest.com</a>
+    </div>
+
+    <div class="line">
+      📱 <a href="tel:+381638512969">+381 63 851 2969</a>
+    </div>
+
+  </div>
+
+  <!-- PHOTO GRID -->
   <div class="gallery">
     <img src="img/01.jpg">
     <img src="img/02.jpg">
@@ -72,28 +149,30 @@
     <img src="img/04.jpg">
     <img src="img/05.jpg">
     <img src="img/06.jpg">
-    <!-- add up to ~50 images -->
+    <!-- add more -->
   </div>
 
-  <div class="lightbox" id="lightbox">
-    <img id="lightbox-img">
-  </div>
+</div>
 
-  <script>
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
+<div class="lightbox" id="lightbox">
+  <img id="lightbox-img">
+</div>
 
-    document.querySelectorAll(".gallery img").forEach(img => {
-      img.addEventListener("click", () => {
-        lightboxImg.src = img.src;
-        lightbox.style.display = "flex";
-      });
+<script>
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+
+  document.querySelectorAll(".gallery img").forEach(img => {
+    img.addEventListener("click", () => {
+      lightboxImg.src = img.src;
+      lightbox.style.display = "flex";
     });
+  });
 
-    lightbox.addEventListener("click", () => {
-      lightbox.style.display = "none";
-    });
-  </script>
+  lightbox.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+</script>
 
 </body>
 </html>
