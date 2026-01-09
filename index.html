@@ -2,54 +2,98 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>aerogondo | Photography by Jovo Marjanovic</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jovo Marjanovic — Photography</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #0f0f0f;
+      color: #eee;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px 10px 10px;
+      font-size: 14px;
+      letter-spacing: 2px;
+      opacity: 0.8;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 6px;
+      padding: 6px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+      opacity: 0.9;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .lightbox img {
+      max-width: 95%;
+      max-height: 95%;
+    }
+
+  </style>
 </head>
 <body>
 
-<header>
-  <h1>aerogondo</h1>
-  <p>Photography by Jovo Marjanovic</p>
-</header>
+  <header>JOVO MARJANOVIC · PHOTOGRAPHY</header>
 
-<section id="gallery">
-  <!-- Replace these with your own photos -->
-  <img src="images/photo1.jpg" alt="Photography by aerogondo">
-  <img src="images/photo2.jpg" alt="Photography by aerogondo">
-  <img src="images/photo3.jpg" alt="Photography by aerogondo">
-  <img src="images/photo4.jpg" alt="Photography by aerogondo">
-  <img src="images/photo5.jpg" alt="Photography by aerogondo">
-</section>
+  <div class="gallery">
+    <img src="img/01.jpg">
+    <img src="img/02.jpg">
+    <img src="img/03.jpg">
+    <img src="img/04.jpg">
+    <img src="img/05.jpg">
+    <img src="img/06.jpg">
+    <!-- add up to ~50 images -->
+  </div>
 
-<section id="contact">
-  <p><strong>Jovo Marjanovic</strong></p>
-  <p>Romena Rolana 53-1, Belgrade, Serbia</p>
+  <div class="lightbox" id="lightbox">
+    <img id="lightbox-img">
+  </div>
 
-  <p>
-    Email:
-    <a href="mailto:jovo@priest.com">jovo@priest.com</a>
-  </p>
+  <script>
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
 
-  <p>
-    Instagram:
-    <a href="https://instagram.com/jovomarjanovicphotography" target="_blank">
-      @jovomarjanovicphotography
-    </a>
-  </p>
+    document.querySelectorAll(".gallery img").forEach(img => {
+      img.addEventListener("click", () => {
+        lightboxImg.src = img.src;
+        lightbox.style.display = "flex";
+      });
+    });
 
-  <p>
-    Adobe Stock:
-    <a href="https://stock.adobe.com/contributor/201855263/aerogondo" target="_blank">
-      aerogondo portfolio
-    </a>
-  </p>
-</section>
-
-<footer>
-  <p>© 2026 aerogondo — Jovo Marjanovic</p>
-</footer>
+    lightbox.addEventListener("click", () => {
+      lightbox.style.display = "none";
+    });
+  </script>
 
 </body>
 </html>
-
